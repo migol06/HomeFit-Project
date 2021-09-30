@@ -54,26 +54,16 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
         ),
         HFAppBar(
           title: "Home Workout",
-          leftWidget: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
+        ),
+        SizedBox(
+          height: HFGrid.large,
         ),
         HFAppBar(
           title: "ABS BEGGINER",
-          leftWidget: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
-        )
+        ),
+        SizedBox(
+          height: HFGrid.large,
+        ),
       ])),
     );
   }
