@@ -63,6 +63,14 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
                 color: Colors.white,
               )),
         )
+        HFAppBar(title: "ABS BEGGINER", leftWidget:  IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
       ])),
     );
   }
