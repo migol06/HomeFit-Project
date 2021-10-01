@@ -19,37 +19,31 @@ class HFWorkoutButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
-        child: Container(
-          width: MediaQuery.of(context).size.width * .85,
-          decoration: BoxDecoration(
-              color: HFColor.blue,
-              borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(0, 17),
-                    blurRadius: 17,
-                    spreadRadius: -23,
-                    color: HFColor.gray)
-              ]),
-          child: Padding(
-            padding: const EdgeInsets.all(HFGrid.medium),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                HFText(
-                  title,
-                  color: Colors.white,
-                  weight: HFTextWeight.bold,
-                  size: HFTextSize.large,
-                ),
-                SizedBox(
-                  height: HFGrid.xxxxxLarge,
-                ),
-                _icons()
-              ],
-            ),
+      child: Container(
+        width: MediaQuery.of(context).size.width * .85,
+        decoration: BoxDecoration(
+            color: HFColor.blue,
+            borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 8), blurRadius: 4, color: HFColor.gray)
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(HFGrid.medium),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HFText(
+                title,
+                color: Colors.white,
+                weight: HFTextWeight.bold,
+                size: HFTextSize.large,
+              ),
+              SizedBox(
+                height: HFGrid.xxxxxLarge,
+              ),
+              _icons()
+            ],
           ),
         ),
       ),

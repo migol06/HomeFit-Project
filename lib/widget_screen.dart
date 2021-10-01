@@ -68,7 +68,15 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
           SizedBox(
             height: HFGrid.large,
           ),
-          HFWorkoutButtons(category: "Beginner", title: "ABS Beginner"),
+          HFWorkoutButtons(
+            category: "Beginner",
+            title: "ABS Beginner",
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("This is a demo"),
+              ));
+            },
+          ),
           SizedBox(
             height: HFGrid.large,
           ),
