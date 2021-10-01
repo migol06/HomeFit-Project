@@ -61,7 +61,7 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
             height: HFGrid.large,
           ),
           HFAppBar(
-            title: "ABS BEGGINER",
+            title: "ABS BEGINER",
           ),
           SizedBox(
             height: HFGrid.large,
