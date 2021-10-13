@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.homefit">
    <application
-        android:label="homefit"
+        android:label="HomeFit"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
