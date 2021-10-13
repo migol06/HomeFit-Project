@@ -85,7 +85,23 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
           HFWorkoutButtons(category: "Advance", title: "ABS Advance"),
           SizedBox(
             height: HFGrid.large,
-          )
+          ),
+          HFCalories(calorieTitle: "Maintain Weight", calorieCalc: 0),
+          SizedBox(
+            height: HFGrid.large,
+          ),
+          HFCalories(calorieTitle: "Mild Weight loss", calorieCalc: 0),
+          SizedBox(
+            height: HFGrid.large,
+          ),
+          HFCalories(calorieTitle: "Extreme Weight loss", calorieCalc: 0),
+          SizedBox(
+            height: HFGrid.large,
+          ),
+          HFCalories(calorieTitle: "Weight loss", calorieCalc: 0),
+          SizedBox(
+            height: HFGrid.large,
+          ),
         ])),
       ),
     );
