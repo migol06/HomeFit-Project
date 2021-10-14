@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:homefit/screen.dart';
 import 'package:homefit/widgets/constants/constant.dart';
-import 'package:homefit/widgets/constants/grid.dart';
 import 'package:homefit/widgets/widgets.dart';
 import 'package:intl/intl.dart';
 
@@ -36,15 +36,33 @@ class HFHomeScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.topRight,
                         child: Container(
-                          height: 52,
-                          width: 52,
-                          decoration: BoxDecoration(
-                              color: HFColor.lightBlue, shape: BoxShape.circle),
-                          child: Icon(
-                            Icons.menu_outlined,
-                            color: Colors.white,
-                          ),
-                        ),
+                            height: 52,
+                            width: 52,
+                            decoration: BoxDecoration(
+                                color: HFColor.lightBlue,
+                                shape: BoxShape.circle),
+                            child: PopupMenuButton(
+                                icon: Icon(
+                                  Icons.more_vert_outlined,
+                                  color: Colors.white,
+                                ),
+                                itemBuilder: (context) => [
+                                      PopupMenuItem(
+                                        child: ListTile(
+                                          title: Text('About us'),
+                                          onTap: () {
+                                            showDialog(
+                                                context: context,
+                                                builder: (_) => AlertDialog(
+                                                      title: Text('About Us'),
+                                                      content: Text(
+                                                          'Welcome To HomeFit' +
+                                                              '\n\nHomeFit is a Professional Educational Platform. Here we will provide you with only interesting content, which you will like very much. We\'re dedicated to providing you the best of Educational, with a focus on dependability and Workout Routines. '),
+                                                    ));
+                                          },
+                                        ),
+                                      )
+                                    ])),
                       ),
                       HFText("HOMEFIT",
                           color: Colors.white,
@@ -56,7 +74,31 @@ class HFHomeScreen extends StatelessWidget {
                         size: HFTextSize.large,
                       ),
                       SizedBox(height: HFGrid.xxxxxxxLarge),
-                      _getHomeButtons()
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          HFHomeButtons(
+                            title: "Home Workout",
+                            color: HFColor.blue,
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      HFWidgetScreen(title: "Test")));
+                            },
+                          ),
+                          SizedBox(
+                            height: HFGrid.large,
+                          ),
+                          HFHomeButtons(
+                              title: "Calorie Deficit Calculator",
+                              color: HFColor.lightBlue,
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        HFWidgetScreen(title: "Test")));
+                              })
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -65,19 +107,6 @@ class HFHomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _getHomeButtons() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        HFHomeButtons(title: "Home Workout", color: HFColor.blue),
-        SizedBox(
-          height: HFGrid.large,
-        ),
-        HFHomeButtons(title: "Calorie Deficit", color: HFColor.lightBlue)
-      ],
     );
   }
 }
