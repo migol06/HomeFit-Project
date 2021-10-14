@@ -23,47 +23,44 @@ class HFHomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: HFColor.orange,
                     image: DecorationImage(
-                        alignment: Alignment.bottomCenter,
+                        alignment: Alignment.bottomRight,
                         scale: 1.5,
                         image: AssetImage("assets/images/workout.png"))),
               ),
               SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(HFGrid.large),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      height: 52,
-                      width: 52,
-                      decoration: BoxDecoration(
-                          color: HFColor.lightBlue, shape: BoxShape.circle),
-                      child: Icon(
-                        Icons.menu_outlined,
-                        color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          height: 52,
+                          width: 52,
+                          decoration: BoxDecoration(
+                              color: HFColor.lightBlue, shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.menu_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    ),
+                      HFText("HOMEFIT",
+                          color: Colors.white,
+                          size: HFTextSize.xxLarge,
+                          weight: HFTextWeight.bold),
+                      HFText(
+                        formattedDate,
+                        color: Colors.white,
+                        size: HFTextSize.large,
+                      ),
+                      SizedBox(height: HFGrid.xxxxxxxLarge),
+                      _getHomeButtons()
+                    ],
                   ),
                 ),
               ),
-              SafeArea(
-                  child: Padding(
-                padding: const EdgeInsets.all(HFGrid.large),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    HFText("HOMEFIT",
-                        color: Colors.white,
-                        size: HFTextSize.xxLarge,
-                        weight: HFTextWeight.bold),
-                    HFText(
-                      formattedDate,
-                      color: Colors.white,
-                      size: HFTextSize.large,
-                    ),
-                  ],
-                ),
-              )),
-              _getHomeButtons()
             ],
           ),
         ],
