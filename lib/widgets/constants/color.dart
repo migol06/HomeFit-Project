@@ -27,4 +27,7 @@ class HFColor {
 
   static const int blueHex = 0xFF3D5A80;
   static const Color blue = Color(blueHex);
+
+  static const int lightBlueHex = 0xFF98C1D9;
+  static const Color lightBlue = Color(lightBlueHex);
 }

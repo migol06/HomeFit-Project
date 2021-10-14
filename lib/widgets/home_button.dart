@@ -4,14 +4,12 @@ import 'package:homefit/widgets/text.dart';
 import 'constants/constant.dart';
 
 class HFHomeButtons extends StatelessWidget {
-  final String category;
   final String title;
   final VoidCallback? onTap;
-  final String color;
+  final Color color;
 
   const HFHomeButtons({
     Key? key,
-    required this.category,
     required this.title,
     required this.color,
     this.onTap,
@@ -24,7 +22,7 @@ class HFHomeButtons extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width * .85,
           decoration: BoxDecoration(
-              color: HFColor.blue,
+              color: color,
               borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
               boxShadow: [
                 BoxShadow(
@@ -35,18 +33,34 @@ class HFHomeButtons extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HFText(
-                  title,
-                  color: Colors.white,
-                  weight: HFTextWeight.bold,
-                  size: HFTextSize.large,
-                ),
+                _getIcons(),
                 SizedBox(
-                  height: HFGrid.xxxxxLarge,
+                  height: HFGrid.xxLarge,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    HFText(
+                      title,
+                      color: Colors.white,
+                      weight: HFTextWeight.bold,
+                      size: HFTextSize.large,
+                    ),
+                  ],
                 )
               ],
             ),
           ),
         ));
+  }
+
+  Widget _getIcons() {
+    if (title.toUpperCase() == 'HOME WORKOUT') {
+      return Icon(Icons.fitness_center_outlined,
+          color: Colors.white, size: HFGrid.xxxLarge);
+    } else {
+      return Icon(Icons.set_meal_outlined,
+          color: Colors.white, size: HFGrid.xxxLarge);
+    }
   }
 }
