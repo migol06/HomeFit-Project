@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HFWidgetScreen(title: 'Widget Demo Home Page'),
+      home: const HFHomeScreen(),
     );
   }
 }
