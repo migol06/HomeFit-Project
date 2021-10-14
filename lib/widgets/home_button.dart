@@ -26,7 +26,7 @@ class HFHomeButtons extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
               boxShadow: [
                 BoxShadow(
-                    offset: Offset(0, 8), blurRadius: 4, color: HFColor.blue)
+                    offset: Offset(0, 8), blurRadius: 4, color: HFColor.gray)
               ]),
           child: Padding(
             padding: const EdgeInsets.all(HFGrid.medium),
