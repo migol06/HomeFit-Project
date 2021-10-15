@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homefit/screens/armsbeginner_screen.dart';
-import 'package:homefit/screens/legsbeginner_screen.dart';
 import 'package:homefit/screens/screen.dart';
-import 'package:homefit/screens/shoulderbackbeginner_screen.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import '../widgets/widgets.dart';
 
@@ -142,7 +139,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     height: HFGrid.medium,
                   ),
                   HFWorkoutButtons(
-                    category: "Beginner",
+                    category: "Intermediate",
                     title: "Shoulder and Back Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -169,7 +166,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Abs Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFAbsAdvanceScreen()));
                     },
                   ),
                   SizedBox(
@@ -180,7 +177,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Chest Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFChestAdvanceScreen()));
                     },
                   ),
                   SizedBox(
@@ -191,7 +188,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Arms Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFArmsAdvanceScreen()));
                     },
                   ),
                   SizedBox(
@@ -202,7 +199,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Legs Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFLegsAdvanceScreen()));
                     },
                   ),
                   SizedBox(
@@ -213,7 +210,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Shoulder and Back Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFShoulderBackAdvanceScreen()));
                     },
                   ),
                 ],
