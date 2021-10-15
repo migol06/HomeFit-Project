@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:homefit/screen.dart';
+import 'package:homefit/screens/screen.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import 'package:homefit/widgets/widgets.dart';
 import 'package:intl/intl.dart';

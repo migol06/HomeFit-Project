@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homefit/screen.dart';
+import 'package:homefit/screens/screen.dart';
 
 void main() {
   runApp(const MyApp());
