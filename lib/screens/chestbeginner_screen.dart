@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:homefit/data/data.dart';
 import 'package:homefit/widgets/widgets.dart';
 
-class HFChestScreen extends StatelessWidget {
-  const HFChestScreen({Key? key}) : super(key: key);
+class HFChestBeginnerScreen extends StatelessWidget {
+  const HFChestBeginnerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
