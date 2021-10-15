@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homefit/screens/armsbeginner_screen.dart';
 import 'package:homefit/screens/screen.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import '../widgets/widgets.dart';
@@ -53,7 +54,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Arms Beginner",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFArmsBeginnerScreen()));
                     },
                   ),
                   SizedBox(
