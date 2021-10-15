@@ -44,6 +44,10 @@ flutter:
     - assets/images/
     - assets/images/abs_workout/
     - assets/images/chest/
+    - assets/images/arms/
+    - assets/images/legs/
+    - assets/images/shoulder&back/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
