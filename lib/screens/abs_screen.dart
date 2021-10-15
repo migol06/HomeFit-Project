@@ -3,8 +3,8 @@ import 'package:homefit/widgets/appbar.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import 'package:homefit/widgets/widgets.dart';
 
-class HFAbsScreen extends StatelessWidget {
-  const HFAbsScreen({Key? key}) : super(key: key);
+class HFAbsBeginnerScreen extends StatelessWidget {
+  const HFAbsBeginnerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
