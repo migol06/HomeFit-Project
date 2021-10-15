@@ -1,12 +1,12 @@
-class HFChestShit {
+class HFChestBeginner {
   String label;
   String imageUrl;
   String counts;
 
-  HFChestShit(this.label, this.imageUrl, this.counts);
+  HFChestBeginner(this.label, this.imageUrl, this.counts);
 
-  static List<HFChestShit> sample = [
-    HFChestShit(
+  static List<HFChestBeginner> chest = [
+    HFChestBeginner(
         "Jumping Jacks", "assets/images/chest/jumpingjacks.jpg", "20 secs")
   ];
 }

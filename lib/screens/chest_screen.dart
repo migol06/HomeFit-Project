@@ -11,9 +11,9 @@ class HFChestScreen extends StatelessWidget {
     return Scaffold(
       appBar: HFAppBar(title: 'Chest Beginner'),
       body: ListView.builder(
-          itemCount: HFChestShit.sample.length,
+          itemCount: HFChestBeginner.chest.length,
           itemBuilder: (BuildContext context, int index) {
-            return HFText(HFChestShit.sample[index].label);
+            return HFText(HFChestBeginner.chest[index].counts);
           }),
     );
   }
