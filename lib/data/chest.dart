@@ -1,9 +1,9 @@
 class HFChestBeginner {
-  String label;
-  String imageUrl;
+  String workoutTitle;
+  String imagePath;
   String counts;
 
-  HFChestBeginner(this.label, this.imageUrl, this.counts);
+  HFChestBeginner(this.workoutTitle, this.imagePath, this.counts);
 
   static List<HFChestBeginner> chest = [
     HFChestBeginner(

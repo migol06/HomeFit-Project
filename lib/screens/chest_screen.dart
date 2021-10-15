@@ -14,8 +14,8 @@ class HFChestScreen extends StatelessWidget {
           itemCount: HFChestBeginner.chest.length,
           itemBuilder: (BuildContext context, int index) {
             return HFWorkout(
-                workoutImage: HFChestBeginner.chest[index].imageUrl,
-                workoutTitle: HFChestBeginner.chest[index].label,
+                workoutImage: HFChestBeginner.chest[index].imagePath,
+                workoutTitle: HFChestBeginner.chest[index].workoutTitle,
                 counts: HFChestBeginner.chest[index].counts);
           }),
     );
