@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:homefit/widgets/constants/constant.dart';
+import 'package:homefit/widgets/constants/grid.dart';
 import 'package:homefit/widgets/widgets.dart';
 
 class HFWidgetScreen extends StatefulWidget {
@@ -107,6 +108,14 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
             height: HFGrid.large,
           ),
           HFHomeButtons(title: "Calorie", color: HFColor.lightBlue),
+          SizedBox(
+            height: HFGrid.large,
+          ),
+          HFWorkout(
+              workoutImage: "assets/images/abs_workout/abdominalcrunches.jpg",
+              workoutTitle: "Abdominal Crunches",
+              counts: "16 reps"),
+          SizedBox(height: HFGrid.xxLarge)
         ])),
       ),
     );
