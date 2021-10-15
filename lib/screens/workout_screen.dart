@@ -199,7 +199,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Legs Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFLegsAdvanceScreen()));
                     },
                   ),
                   SizedBox(
