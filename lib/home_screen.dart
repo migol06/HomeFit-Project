@@ -12,6 +12,7 @@ class HFHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime dateNow = DateTime.now();
     DateFormat dateFormatter = DateFormat('EEEE, MMMM d,yyyy');
+    var mediaHeight = MediaQuery.of(context).size.height;
     final String formattedDate = dateFormatter.format(dateNow);
     return Scaffold(
       body: Column(
@@ -19,7 +20,7 @@ class HFHomeScreen extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * .45,
+                height: mediaHeight * .45,
                 decoration: BoxDecoration(
                     color: HFColor.orange,
                     image: DecorationImage(
@@ -73,7 +74,7 @@ class HFHomeScreen extends StatelessWidget {
                         color: Colors.white,
                         size: HFTextSize.large,
                       ),
-                      SizedBox(height: HFGrid.xxxxxxxLarge),
+                      SizedBox(height: mediaHeight * .20),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
