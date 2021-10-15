@@ -5,7 +5,7 @@ class HFChestBeginner {
 
   HFChestBeginner(this.workoutTitle, this.imagePath, this.counts);
 
-  static List<HFChestBeginner> chest = [
+  static List<HFChestBeginner> data = [
     HFChestBeginner(
         "Jumping Jacks", "assets/images/chest/jumpingjacks.jpg", "20 secs"),
     HFChestBeginner(

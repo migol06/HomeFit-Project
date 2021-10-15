@@ -5,7 +5,7 @@ class HFAbsBeginner {
 
   HFAbsBeginner(this.workoutTitle, this.imagePath, this.counts);
 
-  static List<HFAbsBeginner> abs = [
+  static List<HFAbsBeginner> data = [
     HFAbsBeginner("Jumping Jacks", "assets/images/abs_workout/jumpingjacks.jpg",
         "20 secs"),
     HFAbsBeginner("Ambdominal Cruches",

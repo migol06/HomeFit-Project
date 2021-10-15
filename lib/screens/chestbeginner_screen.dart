@@ -11,12 +11,12 @@ class HFChestBeginnerScreen extends StatelessWidget {
     return Scaffold(
       appBar: HFAppBar(title: 'Chest Beginner'),
       body: ListView.builder(
-          itemCount: HFChestBeginner.chest.length,
+          itemCount: HFChestBeginner.data.length,
           itemBuilder: (BuildContext context, int index) {
             return HFWorkout(
-                workoutImage: HFChestBeginner.chest[index].imagePath,
-                workoutTitle: HFChestBeginner.chest[index].workoutTitle,
-                counts: HFChestBeginner.chest[index].counts);
+                workoutImage: HFChestBeginner.data[index].imagePath,
+                workoutTitle: HFChestBeginner.data[index].workoutTitle,
+                counts: HFChestBeginner.data[index].counts);
           }),
     );
   }

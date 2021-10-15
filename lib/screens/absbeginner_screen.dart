@@ -10,12 +10,12 @@ class HFAbsBeginnerScreen extends StatelessWidget {
     return Scaffold(
       appBar: HFAppBar(title: "ABS BEGINNER"),
       body: ListView.builder(
-          itemCount: HFAbsBeginner.abs.length,
+          itemCount: HFAbsBeginner.data.length,
           itemBuilder: (BuildContext context, int index) {
             return HFWorkout(
-                workoutImage: HFAbsBeginner.abs[index].imagePath,
-                workoutTitle: HFAbsBeginner.abs[index].workoutTitle,
-                counts: HFAbsBeginner.abs[index].counts);
+                workoutImage: HFAbsBeginner.data[index].imagePath,
+                workoutTitle: HFAbsBeginner.data[index].workoutTitle,
+                counts: HFAbsBeginner.data[index].counts);
           }),
     );
   }
