@@ -13,7 +13,10 @@ class HFChestScreen extends StatelessWidget {
       body: ListView.builder(
           itemCount: HFChestBeginner.chest.length,
           itemBuilder: (BuildContext context, int index) {
-            return HFText(HFChestBeginner.chest[index].counts);
+            return HFWorkout(
+                workoutImage: HFChestBeginner.chest[index].imageUrl,
+                workoutTitle: HFChestBeginner.chest[index].label,
+                counts: HFChestBeginner.chest[index].counts);
           }),
     );
   }
