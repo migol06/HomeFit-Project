@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homefit/screens/abs_screen.dart';
 import 'package:homefit/screens/widget_screen.dart';
 import 'package:homefit/widgets/constants/color.dart';
 import 'package:homefit/widgets/constants/constant.dart';
@@ -34,7 +35,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Abs Beginner",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFAbsScreen()));
                     },
                   ),
                   SizedBox(
