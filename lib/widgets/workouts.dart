@@ -19,18 +19,21 @@ class HFWorkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
-    return Container(
-      height: MediaQuery.of(context).size.height * .15,
-      width: mediaWidth * .85,
-      color: HFColor.gray,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            _getImage(),
-            SizedBox(width: HFGrid.small),
-            _getWorkoutName()
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(HFGrid.small),
+      child: Container(
+        height: MediaQuery.of(context).size.height * .15,
+        width: mediaWidth * .85,
+        color: HFColor.gray,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              _getImage(),
+              SizedBox(width: HFGrid.small),
+              _getWorkoutName()
+            ],
+          ),
         ),
       ),
     );
