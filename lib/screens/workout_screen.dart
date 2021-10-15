@@ -139,7 +139,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     height: HFGrid.medium,
                   ),
                   HFWorkoutButtons(
-                    category: "Beginner",
+                    category: "Intermediate",
                     title: "Shoulder and Back Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -210,7 +210,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Shoulder and Back Advance",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFShoulderBackAdvanceScreen()));
                     },
                   ),
                 ],

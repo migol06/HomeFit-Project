@@ -7,3 +7,4 @@ export 'absadvance.dart';
 export 'armsadvance.dart';
 export 'chestadvance.dart';
 export 'legsadvance.dart';
+export 'shoulderbackadvance.dart';
