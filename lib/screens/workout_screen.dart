@@ -99,7 +99,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Abs Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFAbsIntermediateScreen()));
                     },
                   ),
                   SizedBox(
@@ -110,7 +110,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Chest Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFChestIntermediateScreen()));
                     },
                   ),
                   SizedBox(
@@ -121,7 +121,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Arms Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFArmsIntermediateScreen()));
                     },
                   ),
                   SizedBox(
@@ -132,7 +132,7 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Legs Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) => HFLegsIntermediateScreen()));
                     },
                   ),
                   SizedBox(
@@ -143,7 +143,8 @@ class HFWorkoutScreen extends StatelessWidget {
                     title: "Shoulder and Back Intermediate",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HFWidgetScreen(title: "Test")));
+                          builder: (context) =>
+                              HFShoulderBackIntermediateScreen()));
                     },
                   ),
                 ],

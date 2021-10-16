@@ -11,3 +11,8 @@ export 'armsadvance_screen.dart';
 export 'chestadvance_screen.dart';
 export 'legsadvance_screen.dart';
 export 'shoulderbackadvance_screen.dart';
+export 'shoulderbackintermediate_screen.dart';
+export 'absintermediate_screen.dart';
+export 'chestintermediate_screen.dart';
+export 'legintermediate_screen.dart';
+export 'armintermediate_screen.dart';

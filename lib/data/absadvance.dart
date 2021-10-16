@@ -8,7 +8,7 @@ class HFAbsAdvance {
   static List<HFAbsAdvance> data = [
     HFAbsAdvance("Jumping Jacks", "assets/images/abs_workout/jumpingjacks.jpg",
         "30 secs"),
-    HFAbsAdvance("Ambdominal Cruches",
+    HFAbsAdvance("Abdominal Cruches",
         "assets/images/abs_workout/abdominalcrunches.jpg", "30 reps"),
     HFAbsAdvance("Russian Twist", "assets/images/abs_workout/russiantwist.jpg",
         "48 reps"),
@@ -17,10 +17,10 @@ class HFAbsAdvance {
     HFAbsAdvance(
         "Heel Touch", "assets/images/abs_workout/heeltouch.jpg", "30 reps"),
     HFAbsAdvance("Sit-ups", "assets/images/abs_workout/situps.jpg", "20 reps"),
-    HFAbsAdvance("Spine Lumbar Stretch left",
+    HFAbsAdvance("Spine Lumbar Twist Stretch left",
         "assets/images/abs_workout/spinelumbartwiststretchleft.jpg", "30 secs"),
     HFAbsAdvance(
-        "Spine Lumbar Stretch Right",
+        "Spine Lumbar Twist Stretch Right",
         "assets/images/abs_workout/spinelumbartwiststretchright.jpg",
         "30 secs"),
     HFAbsAdvance("Bicycle Crunches",
