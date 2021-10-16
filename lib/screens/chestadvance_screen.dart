@@ -9,7 +9,7 @@ class HFChestAdvanceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HFAppBar(title: 'Chest Advance'),
+      appBar: HFAppBar(title: 'CHEST ADVANCE'),
       body: ListView.builder(
           itemCount: HFChestAdvance.data.length,
           itemBuilder: (BuildContext context, int index) {

@@ -8,7 +8,7 @@ class HFLegsAdvanceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HFAppBar(title: "LEGS Advance"),
+      appBar: HFAppBar(title: "LEGS ADVANCE"),
       body: ListView.builder(
           itemCount: HFLegsAdvance.data.length,
           itemBuilder: (BuildContext context, int index) {

@@ -18,8 +18,8 @@ class HFChestAdvance {
         "Diamond push-ups", "assets/images/chest/diamondpushup.jpg", "16 reps"),
     HFChestAdvance("Decline Push-ups", "assets/images/chest/declinepushups.jpg",
         "12 reps"),
-    HFChestAdvance(
-        "Wide Push-ups", "assets/images/chest/widearmpushups.jpg", "16 reps"),
+    HFChestAdvance("Wide Arm Push-ups",
+        "assets/images/chest/widearmpushups.jpg", "16 reps"),
     HFChestAdvance(
         "Box Push-ups", "assets/images/chest/boxpushups.jpg", "16 reps"),
   ];
