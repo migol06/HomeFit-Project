@@ -21,6 +21,10 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   TextEditingController _weightController = new TextEditingController();
   TextEditingController _heightController = new TextEditingController();
   TextEditingController _goalWeightController = new TextEditingController();
+  bool _validateAge = false;
+  bool _validateWeight = false;
+  bool _validateHeight = false;
+  bool _validateGoalWeight = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +41,9 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
         children: [
           TextField(
             decoration: InputDecoration(
-              labelText: 'Age',
-              border: OutlineInputBorder(),
-            ),
+                labelText: 'Age',
+                border: OutlineInputBorder(),
+                errorText: _validateAge ? "Please Input your age" : null),
             controller: _ageController,
           ),
           SizedBox(
@@ -51,18 +55,19 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
           ),
           TextField(
               decoration: InputDecoration(
-                labelText: 'Weight (kg)',
-                border: OutlineInputBorder(),
-              ),
+                  labelText: 'Weight (kg)',
+                  border: OutlineInputBorder(),
+                  errorText:
+                      _validateWeight ? "Please Input your weight" : null),
               controller: _weightController),
           SizedBox(
             height: HFGrid.small,
           ),
           TextField(
             decoration: InputDecoration(
-              labelText: 'Height (cm)',
-              border: OutlineInputBorder(),
-            ),
+                labelText: 'Height (cm)',
+                border: OutlineInputBorder(),
+                errorText: _validateHeight ? "Please Input your weight" : null),
             controller: _heightController,
           ),
           SizedBox(
@@ -70,9 +75,10 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
           ),
           TextField(
               decoration: InputDecoration(
-                labelText: 'Goal Weight (kg)',
-                border: OutlineInputBorder(),
-              ),
+                  labelText: 'Goal Weight (kg)',
+                  border: OutlineInputBorder(),
+                  errorText:
+                      _validateGoalWeight ? "Please Input your weight" : null),
               controller: _goalWeightController),
           SizedBox(
             height: HFGrid.small,
@@ -90,7 +96,9 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   Widget _getButton() {
     return ElevatedButton(
         onPressed: () {
-          print(_ageController);
+          setState(() {
+            validate();
+          });
         },
         child: HFText(
           'Calculate',
@@ -175,5 +183,31 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
         ),
       ],
     );
+  }
+
+  void validate() {
+    if (_ageController.text.isEmpty) {
+      _validateAge = true;
+    } else {
+      _validateAge = false;
+    }
+
+    if (_weightController.text.isEmpty) {
+      _validateWeight = true;
+    } else {
+      _validateWeight = false;
+    }
+
+    if (_heightController.text.isEmpty) {
+      _validateWeight = true;
+    } else {
+      _validateHeight = false;
+    }
+
+    if (_goalWeightController.text.isEmpty) {
+      _validateGoalWeight = true;
+    } else {
+      _validateGoalWeight = false;
+    }
   }
 }
