@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homefit/widgets/appbar.dart';
+import 'package:homefit/widgets/calorie.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import 'package:homefit/widgets/constants/grid.dart';
 import 'package:homefit/widgets/text.dart';
@@ -25,6 +26,20 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   bool _validateWeight = false;
   bool _validateHeight = false;
   bool _validateGoalWeight = false;
+  bool _calculate = false;
+  int cal = 0;
+
+  @override
+  void initState() {
+    cal = 0;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    cal = 0;
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +102,11 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
           SizedBox(
             height: HFGrid.small,
           ),
-          _getButton()
+          _getButton(),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          HFCalories(calorieTitle: "Weight Loss", calorieCalc: cal)
         ],
       ),
     );
@@ -208,6 +227,13 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
       _validateGoalWeight = true;
     } else {
       _validateGoalWeight = false;
+    }
+
+    if (_validateAge &&
+        _validateWeight &&
+        _validateHeight &&
+        _validateGoalWeight) {
+      _calculate = true;
     }
   }
 }
