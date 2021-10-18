@@ -94,8 +94,7 @@ class HFHomeScreen extends StatelessWidget {
                               color: HFColor.lightBlue,
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        HFWidgetScreen(title: "Test")));
+                                    builder: (context) => HFCaloriDeficit()));
                               })
                         ],
                       )

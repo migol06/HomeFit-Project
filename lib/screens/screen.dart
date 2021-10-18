@@ -16,3 +16,4 @@ export 'absintermediate_screen.dart';
 export 'chestintermediate_screen.dart';
 export 'legintermediate_screen.dart';
 export 'armintermediate_screen.dart';
+export 'calorie_screen.dart';
