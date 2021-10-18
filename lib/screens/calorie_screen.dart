@@ -14,10 +14,13 @@ class HFCaloriDeficit extends StatefulWidget {
 }
 
 class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
-  final formKey = GlobalKey<FormState>();
   int val = -1;
   gender? _gender = gender.male;
   String dropdownValue = 'Very light';
+  TextEditingController _ageController = new TextEditingController();
+  TextEditingController _weightController = new TextEditingController();
+  TextEditingController _heightController = new TextEditingController();
+  TextEditingController _goalWeightController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,69 +31,74 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   }
 
   Widget _getForms() {
-    return Form(
-        key: formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(HFGrid.medium),
-          child: ListView(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Age',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              _getGender(),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Weight (kg)',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Height (cm)',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Goal Weight (kg)',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              _getPhysicalActivity(),
-              SizedBox(
-                height: HFGrid.small,
-              ),
-              ElevatedButton(
-                  onPressed: () {},
-                  child: HFText(
-                    'Calculate',
-                    color: Colors.white,
-                    size: HFTextSize.large,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(HFColor.blue))),
-            ],
+    return Padding(
+      padding: const EdgeInsets.all(HFGrid.medium),
+      child: ListView(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Age',
+              border: OutlineInputBorder(),
+            ),
+            controller: _ageController,
           ),
-        ));
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          _getGender(),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          TextField(
+              decoration: InputDecoration(
+                labelText: 'Weight (kg)',
+                border: OutlineInputBorder(),
+              ),
+              controller: _weightController),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Height (cm)',
+              border: OutlineInputBorder(),
+            ),
+            controller: _heightController,
+          ),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          TextField(
+              decoration: InputDecoration(
+                labelText: 'Goal Weight (kg)',
+                border: OutlineInputBorder(),
+              ),
+              controller: _goalWeightController),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          _getPhysicalActivity(),
+          SizedBox(
+            height: HFGrid.small,
+          ),
+          _getButton()
+        ],
+      ),
+    );
+  }
+
+  Widget _getButton() {
+    return ElevatedButton(
+        onPressed: () {
+          print(_ageController);
+        },
+        child: HFText(
+          'Calculate',
+          color: Colors.white,
+          size: HFTextSize.large,
+        ),
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(HFColor.blue)));
   }
 
   Widget _getGender() {
