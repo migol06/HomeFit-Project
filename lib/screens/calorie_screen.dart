@@ -29,83 +29,94 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   Widget _getForms() {
     return Form(
         key: formKey,
-        child: ListView(
-          children: [
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Age',
-                border: OutlineInputBorder(),
+        child: Padding(
+          padding: const EdgeInsets.all(HFGrid.medium),
+          child: ListView(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Age',
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
-            SizedBox(
-              height: HFGrid.small,
-            ),
-            _getGender(),
-            SizedBox(
-              height: HFGrid.small,
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Weight (kg)',
-                border: OutlineInputBorder(),
+              SizedBox(
+                height: HFGrid.small,
               ),
-            ),
-            SizedBox(
-              height: HFGrid.small,
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Height (cm)',
-                border: OutlineInputBorder(),
+              _getGender(),
+              SizedBox(
+                height: HFGrid.small,
               ),
-            ),
-            SizedBox(
-              height: HFGrid.small,
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Goal Weight (kg)',
-                border: OutlineInputBorder(),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Weight (kg)',
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
-            SizedBox(
-              height: HFGrid.small,
-            ),
-          ],
+              SizedBox(
+                height: HFGrid.small,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Height (cm)',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(
+                height: HFGrid.small,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Goal Weight (kg)',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(
+                height: HFGrid.small,
+              ),
+            ],
+          ),
         ));
   }
 
   Widget _getGender() {
-    return Column(
+    return Row(
       children: [
-        ListTile(
-          title: HFText("Male"),
-          leading: Radio<gender>(
-            value: gender.male,
-            groupValue: _gender,
-            onChanged: (gender? value) {
-              setState(() {
-                _gender = value;
-                print(_gender);
-              });
-            },
-            activeColor: HFColor.orange,
+        Expanded(
+          child: Row(
+            children: [
+              Radio<gender>(
+                value: gender.male,
+                groupValue: _gender,
+                onChanged: (gender? value) {
+                  setState(() {
+                    _gender = value;
+                    print(_gender);
+                  });
+                },
+                activeColor: HFColor.orange,
+              ),
+              Expanded(child: HFText('Male'))
+            ],
           ),
         ),
-        ListTile(
-          title: HFText("Female"),
-          leading: Radio<gender>(
-            value: gender.female,
-            groupValue: _gender,
-            onChanged: (gender? value) {
-              setState(() {
-                _gender = value;
-                print(_gender);
-              });
-            },
-            activeColor: HFColor.orange,
+        Expanded(
+          child: Row(
+            children: [
+              Radio<gender>(
+                value: gender.female,
+                groupValue: _gender,
+                onChanged: (gender? value) {
+                  setState(() {
+                    _gender = value;
+                    print(_gender);
+                  });
+                },
+                activeColor: HFColor.orange,
+              ),
+              Expanded(child: HFText('Female'))
+            ],
           ),
-        )
+        ),
       ],
     );
   }
