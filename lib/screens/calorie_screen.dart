@@ -75,6 +75,19 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
                 height: HFGrid.small,
               ),
               _getPhysicalActivity(),
+              SizedBox(
+                height: HFGrid.small,
+              ),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: HFText(
+                    'Calculate',
+                    color: Colors.white,
+                    size: HFTextSize.large,
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(HFColor.blue))),
             ],
           ),
         ));
@@ -124,28 +137,35 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   }
 
   Widget _getPhysicalActivity() {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      iconSize: 24,
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['Very light', 'ligt', 'Moderate', 'Heavy']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
+    return Row(
+      children: [
+        HFText(
+          'Physical Activity',
+          size: HFTextSize.large,
+        ),
+        SizedBox(
+          width: HFGrid.medium,
+        ),
+        DropdownButton<String>(
+          value: dropdownValue,
+          icon: const Icon(Icons.arrow_drop_down),
+          iconSize: 24,
+          elevation: 16,
+          onChanged: (String? newValue) {
+            setState(() {
+              dropdownValue = newValue!;
+              print(dropdownValue);
+            });
+          },
+          items: <String>['Very light', 'light', 'Moderate', 'Heavy']
+              .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }
