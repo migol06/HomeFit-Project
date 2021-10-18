@@ -60,6 +60,7 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
                 border: OutlineInputBorder(),
                 errorText: _validateAge ? "Please Input your age" : null),
             controller: _ageController,
+            keyboardType: TextInputType.number,
           ),
           SizedBox(
             height: HFGrid.small,
@@ -74,6 +75,7 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
                   border: OutlineInputBorder(),
                   errorText:
                       _validateWeight ? "Please Input your weight" : null),
+              keyboardType: TextInputType.number,
               controller: _weightController),
           SizedBox(
             height: HFGrid.small,
@@ -83,6 +85,7 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
                 labelText: 'Height (cm)',
                 border: OutlineInputBorder(),
                 errorText: _validateHeight ? "Please Input your weight" : null),
+            keyboardType: TextInputType.number,
             controller: _heightController,
           ),
           SizedBox(
@@ -94,6 +97,7 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
                   border: OutlineInputBorder(),
                   errorText:
                       _validateGoalWeight ? "Please Input your weight" : null),
+              keyboardType: TextInputType.number,
               controller: _goalWeightController),
           SizedBox(
             height: HFGrid.small,
@@ -218,7 +222,7 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
     }
 
     if (_heightController.text.isEmpty) {
-      _validateWeight = true;
+      _validateHeight = true;
     } else {
       _validateHeight = false;
     }
