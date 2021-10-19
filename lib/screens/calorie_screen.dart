@@ -5,8 +5,6 @@ import 'package:homefit/widgets/constants/constant.dart';
 import 'package:homefit/widgets/constants/grid.dart';
 import 'package:homefit/widgets/text.dart';
 
-enum gender { male, female }
-
 class HFCaloriDeficit extends StatefulWidget {
   const HFCaloriDeficit({Key? key}) : super(key: key);
 
@@ -15,19 +13,11 @@ class HFCaloriDeficit extends StatefulWidget {
 }
 
 class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
-  int val = -1;
-  gender? _gender = gender.male;
-  String dropdownValue = 'Very light';
-  TextEditingController _ageController = new TextEditingController();
+  final _form = GlobalKey<FormState>();
+  double fatCal = 0.0;
+  double cal = 0.0;
+  TextEditingController _daysController = new TextEditingController();
   TextEditingController _weightController = new TextEditingController();
-  TextEditingController _heightController = new TextEditingController();
-  TextEditingController _goalWeightController = new TextEditingController();
-  bool _validateAge = false;
-  bool _validateWeight = false;
-  bool _validateHeight = false;
-  bool _validateGoalWeight = false;
-  bool _calculate = false;
-  int cal = 0;
 
   @override
   void initState() {
@@ -51,67 +41,50 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
 
   Widget _getForms() {
     return Padding(
-      padding: const EdgeInsets.all(HFGrid.medium),
-      child: ListView(
-        children: [
-          TextField(
-            decoration: InputDecoration(
-                labelText: 'Age',
-                border: OutlineInputBorder(),
-                errorText: _validateAge ? "Please Input your age" : null),
-            controller: _ageController,
-            keyboardType: TextInputType.number,
-          ),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          _getGender(),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          TextField(
-              decoration: InputDecoration(
-                  labelText: 'Weight (kg)',
+      padding: const EdgeInsets.all(HFGrid.large),
+      child: Form(
+        key: _form,
+        child: ListView(
+          children: [
+            TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Weight to loose (kg) E.g 10kg',
                   border: OutlineInputBorder(),
-                  errorText:
-                      _validateWeight ? "Please Input your weight" : null),
-              keyboardType: TextInputType.number,
-              controller: _weightController),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          TextField(
-            decoration: InputDecoration(
-                labelText: 'Height (cm)',
-                border: OutlineInputBorder(),
-                errorText: _validateHeight ? "Please Input your weight" : null),
-            keyboardType: TextInputType.number,
-            controller: _heightController,
-          ),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          TextField(
-              decoration: InputDecoration(
-                  labelText: 'Goal Weight (kg)',
+                ),
+                controller: _weightController,
+                keyboardType: TextInputType.number,
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return "Please Input your weight you want to loose";
+                  }
+                  return null;
+                }),
+            SizedBox(
+              height: HFGrid.small,
+            ),
+            TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Days of Diet',
                   border: OutlineInputBorder(),
-                  errorText:
-                      _validateGoalWeight ? "Please Input your weight" : null),
-              keyboardType: TextInputType.number,
-              controller: _goalWeightController),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          _getPhysicalActivity(),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          _getButton(),
-          SizedBox(
-            height: HFGrid.small,
-          ),
-          HFCalories(calorieTitle: "Weight Loss", calorieCalc: cal)
-        ],
+                ),
+                keyboardType: TextInputType.number,
+                controller: _daysController,
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return "Please input the days of the diet";
+                  }
+                  return null;
+                }),
+            SizedBox(
+              height: HFGrid.small,
+            ),
+            _getButton(),
+            SizedBox(
+              height: HFGrid.small,
+            ),
+            HFCalories(calorieTitle: "Calorie Intakes", calorieCalc: cal)
+          ],
+        ),
       ),
     );
   }
@@ -119,9 +92,14 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
   Widget _getButton() {
     return ElevatedButton(
         onPressed: () {
-          setState(() {
-            validate();
-          });
+          if (_form.currentState!.validate()) {
+            double weight = double.parse(_weightController.text);
+            double days = double.parse(_daysController.text);
+            setState(() {
+              fatCal = weight * 7700;
+              cal = fatCal / days;
+            });
+          }
         },
         child: HFText(
           'Calculate',
@@ -130,114 +108,5 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
         ),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(HFColor.blue)));
-  }
-
-  Widget _getGender() {
-    return Row(
-      children: [
-        Expanded(
-          child: Row(
-            children: [
-              Radio<gender>(
-                value: gender.male,
-                groupValue: _gender,
-                onChanged: (gender? value) {
-                  setState(() {
-                    _gender = value;
-                    print(_gender);
-                  });
-                },
-                activeColor: HFColor.orange,
-              ),
-              Expanded(child: HFText('Male'))
-            ],
-          ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Radio<gender>(
-                value: gender.female,
-                groupValue: _gender,
-                onChanged: (gender? value) {
-                  setState(() {
-                    _gender = value;
-                    print(_gender);
-                  });
-                },
-                activeColor: HFColor.orange,
-              ),
-              Expanded(child: HFText('Female'))
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _getPhysicalActivity() {
-    return Row(
-      children: [
-        HFText(
-          'Physical Activity',
-          size: HFTextSize.large,
-        ),
-        SizedBox(
-          width: HFGrid.medium,
-        ),
-        DropdownButton<String>(
-          value: dropdownValue,
-          icon: const Icon(Icons.arrow_drop_down),
-          iconSize: 24,
-          elevation: 16,
-          onChanged: (String? newValue) {
-            setState(() {
-              dropdownValue = newValue!;
-              print(dropdownValue);
-            });
-          },
-          items: <String>['Very light', 'light', 'Moderate', 'Heavy']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
-      ],
-    );
-  }
-
-  void validate() {
-    if (_ageController.text.isEmpty) {
-      _validateAge = true;
-    } else {
-      _validateAge = false;
-    }
-
-    if (_weightController.text.isEmpty) {
-      _validateWeight = true;
-    } else {
-      _validateWeight = false;
-    }
-
-    if (_heightController.text.isEmpty) {
-      _validateHeight = true;
-    } else {
-      _validateHeight = false;
-    }
-
-    if (_goalWeightController.text.isEmpty) {
-      _validateGoalWeight = true;
-    } else {
-      _validateGoalWeight = false;
-    }
-
-    if (_validateAge &&
-        _validateWeight &&
-        _validateHeight &&
-        _validateGoalWeight) {
-      _calculate = true;
-    }
   }
 }

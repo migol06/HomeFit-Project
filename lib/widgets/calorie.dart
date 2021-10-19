@@ -6,7 +6,7 @@ import 'constants/constant.dart';
 
 class HFCalories extends StatefulWidget {
   final String calorieTitle;
-  final int calorieCalc;
+  final double calorieCalc;
   const HFCalories(
       {Key? key, required this.calorieTitle, required this.calorieCalc})
       : super(key: key);
@@ -29,7 +29,7 @@ class _HFCaloriesState extends State<HFCalories> {
             HFText(widget.calorieTitle,
                 color: Colors.white, size: HFTextSize.medium),
             Spacer(),
-            HFText(widget.calorieCalc.toString(),
+            HFText(widget.calorieCalc.toStringAsFixed(2) + " Calories/Day",
                 color: Colors.white, size: HFTextSize.medium)
           ],
         ),
