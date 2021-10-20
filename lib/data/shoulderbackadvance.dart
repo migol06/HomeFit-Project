@@ -9,7 +9,7 @@ class HFShoulderBackAdvance {
     HFShoulderBackAdvance("Jumping Jacks",
         "assets/images/shoulder&back/jumpingjacks.jpg", "30 secs"),
     HFShoulderBackAdvance("Hyper Extension",
-        "assets/images/shoulder&back/hyperextension.jpg", "14 reps"),
+        "assets/images/shoulder&back/hyperextention.jpg", "14 reps"),
     HFShoulderBackAdvance("Pike push-ups",
         "assets/images/shoulder&back/pikepushups.jpg", "14 reps"),
     HFShoulderBackAdvance("Supine push-ups",
@@ -19,7 +19,7 @@ class HFShoulderBackAdvance {
     HFShoulderBackAdvance("Floor Tricep dips",
         "assets/images/shoulder&back/floortricepdips.jpg", "20 reps"),
     HFShoulderBackAdvance("Tricep kickback",
-        "assets/images/shoulder&back/tricepkickbacks.jpg", "16 reps"),
+        "assets/images/shoulder&back/tricepskickbacks.jpg", "16 reps"),
     HFShoulderBackAdvance("Hover push-ups",
         "assets/images/shoulder&back/hoverpushup.jpg", "16 reps"),
     HFShoulderBackAdvance(
