@@ -46,6 +46,21 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
         key: _form,
         child: ListView(
           children: [
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  HFText(
+                    'LOSE WEIGHT',
+                    size: HFTextSize.xxLarge,
+                    weight: HFTextWeight.bold,
+                  ),
+                  HFText(
+                      'Input the weight you want to loose and the days you\'ll diet'),
+                ],
+              ),
+            ),
+            SizedBox(height: HFGrid.large),
             TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Weight to loose (kg) E.g 10kg',
