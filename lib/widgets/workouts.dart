@@ -28,10 +28,11 @@ class HFWorkout extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _getImage(),
               SizedBox(width: HFGrid.small),
-              _getWorkoutName()
+              Expanded(child: _getWorkoutName())
             ],
           ),
         ),
@@ -51,10 +52,8 @@ class HFWorkout extends StatelessWidget {
   Widget _getWorkoutName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          height: HFGrid.large,
-        ),
         HFText(
           workoutTitle.toUpperCase(),
           size: HFTextSize.large,
