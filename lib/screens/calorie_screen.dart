@@ -97,7 +97,8 @@ class _HFCaloriDeficitState extends State<HFCaloriDeficit> {
             SizedBox(
               height: HFGrid.small,
             ),
-            HFCalories(calorieTitle: "Calorie Intakes", calorieCalc: cal)
+            HFCalories(
+                calorieTitle: "Decrease Calorie Intakes", calorieCalc: cal)
           ],
         ),
       ),
