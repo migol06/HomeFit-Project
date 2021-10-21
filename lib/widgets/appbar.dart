@@ -17,7 +17,7 @@ class HFAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: HFText(title,
           color: Colors.white,
           weight: HFTextWeight.bold,
-          size: HFTextSize.xLarge),
+          size: HFTextSize.large),
       leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
