@@ -29,7 +29,7 @@ class _HFCaloriesState extends State<HFCalories> {
             HFText(widget.calorieTitle,
                 color: Colors.white, size: HFTextSize.medium),
             Spacer(),
-            HFText(widget.calorieCalc.toStringAsFixed(2) + " Calories/Day",
+            HFText(widget.calorieCalc.toStringAsFixed(2) + " cal/day",
                 color: Colors.white, size: HFTextSize.medium)
           ],
         ),
