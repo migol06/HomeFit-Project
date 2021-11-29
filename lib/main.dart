@@ -20,7 +20,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  isViewed = await prefs.getInt("initScreen");
+  isViewed = prefs.getInt("initScreen");
   await prefs.setInt("initScreen", 1);
   print('initScreen $isViewed');
   runApp(const MyApp());
@@ -42,6 +42,5 @@ class MyApp extends StatelessWidget {
         "first": (context) => HFOnBoarding()
       },
     );
-    // home: isViewed != 0 ? const HFOnBoarding() : HFHomeScreen());
   }
 }
