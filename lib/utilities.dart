@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/constants/constant.dart';
+
 int createUniqueId() {
   return DateTime.now().millisecondsSinceEpoch.remainder(100000);
 }
@@ -50,7 +52,7 @@ Future<NotificationWeekAndTime?> pickSchedule(
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                      Colors.teal,
+                      HFColor.orange,
                     ),
                   ),
                   child: Text(weekdays[index]),
@@ -72,7 +74,7 @@ Future<NotificationWeekAndTime?> pickSchedule(
           return Theme(
             data: ThemeData(
               colorScheme: ColorScheme.light(
-                primary: Colors.teal,
+                primary: HFColor.orange,
               ),
             ),
             child: child!,
