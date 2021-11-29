@@ -15,96 +15,124 @@ class HFHomeScreen extends StatelessWidget {
     var mediaHeight = MediaQuery.of(context).size.height;
     final String formattedDate = dateFormatter.format(dateNow);
     return Scaffold(
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: mediaHeight * .45,
-                decoration: BoxDecoration(
-                    color: HFColor.orange,
-                    image: DecorationImage(
-                        alignment: Alignment.bottomRight,
-                        scale: 1.5,
-                        image: AssetImage("assets/images/workout.png"))),
-              ),
-              SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(HFGrid.large),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                            height: 52,
-                            width: 52,
-                            decoration: BoxDecoration(
-                                color: HFColor.lightBlue,
-                                shape: BoxShape.circle),
-                            child: PopupMenuButton(
-                                icon: Icon(
-                                  Icons.more_vert_outlined,
-                                  color: Colors.white,
-                                ),
-                                itemBuilder: (context) => [
-                                      PopupMenuItem(
-                                        child: ListTile(
-                                          title: Text('About us'),
-                                          onTap: () {
-                                            showDialog(
-                                                context: context,
-                                                builder: (_) => AlertDialog(
-                                                      title: Text('About Us'),
-                                                      content: Text(
-                                                          'Welcome To HomeFit' +
-                                                              '\n\nHomeFit is a Professional Educational Platform. Here we will provide you with only interesting content, which you will like very much. We\'re dedicated to providing you the best of Educational, with a focus on dependability and Workout Routines. '),
-                                                    ));
-                                          },
-                                        ),
-                                      )
-                                    ])),
-                      ),
-                      HFText("HOMEFIT",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: mediaHeight * .45,
+                  decoration: BoxDecoration(
+                      color: HFColor.orange,
+                      image: DecorationImage(
+                          alignment: Alignment.bottomRight,
+                          scale: 1.5,
+                          image: AssetImage("assets/images/workout.png"))),
+                ),
+                SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(HFGrid.large),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Container(
+                              height: 52,
+                              width: 52,
+                              decoration: BoxDecoration(
+                                  color: HFColor.lightBlue,
+                                  shape: BoxShape.circle),
+                              child: PopupMenuButton(
+                                  icon: Icon(
+                                    Icons.more_vert_outlined,
+                                    color: Colors.white,
+                                  ),
+                                  itemBuilder: (context) => [
+                                        PopupMenuItem(
+                                          child: ListTile(
+                                            title: Text('About us'),
+                                            onTap: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (_) => AlertDialog(
+                                                        title: Text('About Us'),
+                                                        content: Text(
+                                                            'Welcome To HomeFit' +
+                                                                '\n\nHomeFit is a Professional Educational Platform. Here we will provide you with only interesting content, which you will like very much. We\'re dedicated to providing you the best of Educational, with a focus on dependability and Workout Routines. '),
+                                                      ));
+                                            },
+                                          ),
+                                        )
+                                      ])),
+                        ),
+                        HFText("HOMEFIT",
+                            color: Colors.white,
+                            size: HFTextSize.xxLarge,
+                            weight: HFTextWeight.bold),
+                        HFText(
+                          formattedDate,
                           color: Colors.white,
-                          size: HFTextSize.xxLarge,
-                          weight: HFTextWeight.bold),
-                      HFText(
-                        formattedDate,
-                        color: Colors.white,
-                        size: HFTextSize.large,
-                      ),
-                      SizedBox(height: mediaHeight * .20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          HFHomeButtons(
-                            title: "Home Workout",
-                            color: HFColor.blue,
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => HFWorkoutScreen()));
-                            },
-                          ),
-                          SizedBox(
-                            height: HFGrid.large,
-                          ),
-                          HFHomeButtons(
-                              title: "Calorie Deficit Calculator",
-                              color: HFColor.lightBlue,
+                          size: HFTextSize.large,
+                        ),
+                        SizedBox(height: mediaHeight * .20),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            HFHomeButtons(
+                              textAlignment: MainAxisAlignment.end,
+                              width: MediaQuery.of(context).size.width * .85,
+                              title: "Home Workout",
+                              color: HFColor.blue,
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => HFCaloriDeficit()));
-                              })
-                        ],
-                      )
-                    ],
+                                    builder: (context) => HFWorkoutScreen()));
+                              },
+                            ),
+                            SizedBox(
+                              height: HFGrid.large,
+                            ),
+                            HFHomeButtons(
+                                textAlignment: MainAxisAlignment.end,
+                                width: MediaQuery.of(context).size.width * .85,
+                                title: "Calorie Deficit Calculator",
+                                color: HFColor.lightBlue,
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => HFCaloriDeficit()));
+                                }),
+                            SizedBox(
+                              height: HFGrid.large,
+                            ),
+                            Row(
+                              children: [
+                                HFHomeButtons(
+                                    textAlignment: MainAxisAlignment.center,
+                                    title: "Notifications",
+                                    color: HFColor.lightOrange,
+                                    width: MediaQuery.of(context).size.width *
+                                        .40),
+                                SizedBox(
+                                  width: HFGrid.large,
+                                ),
+                                HFHomeButtons(
+                                    textAlignment: MainAxisAlignment.center,
+                                    title: "About Us",
+                                    color: HFColor.gray,
+                                    width:
+                                        MediaQuery.of(context).size.width * .40)
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

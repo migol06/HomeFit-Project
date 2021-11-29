@@ -103,11 +103,21 @@ class _HFWidgetScreenState extends State<HFWidgetScreen> {
           SizedBox(
             height: HFGrid.large,
           ),
-          HFHomeButtons(title: "Home Workout", color: HFColor.blue),
+          HFHomeButtons(
+            textAlignment: MainAxisAlignment.center,
+            title: "Home Workout",
+            color: HFColor.blue,
+            width: MediaQuery.of(context).size.width * .85,
+          ),
           SizedBox(
             height: HFGrid.large,
           ),
-          HFHomeButtons(title: "Calorie", color: HFColor.lightBlue),
+          HFHomeButtons(
+            textAlignment: MainAxisAlignment.center,
+            title: "Calorie",
+            color: HFColor.lightBlue,
+            width: MediaQuery.of(context).size.width * .85,
+          ),
           SizedBox(
             height: HFGrid.large,
           ),
