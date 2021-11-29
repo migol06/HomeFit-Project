@@ -7,12 +7,16 @@ class HFHomeButtons extends StatelessWidget {
   final String title;
   final VoidCallback? onTap;
   final Color color;
+  final double width;
+  final MainAxisAlignment textAlignment;
 
   const HFHomeButtons({
     Key? key,
     required this.title,
     required this.color,
     this.onTap,
+    required this.width,
+    required this.textAlignment,
   }) : super(key: key);
 
   @override
@@ -20,7 +24,7 @@ class HFHomeButtons extends StatelessWidget {
     return GestureDetector(
         onTap: onTap,
         child: Container(
-          width: MediaQuery.of(context).size.width * .85,
+          width: width,
           decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.all(Radius.circular(HFGrid.small)),
@@ -38,7 +42,7 @@ class HFHomeButtons extends StatelessWidget {
                   height: HFGrid.xxLarge,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: textAlignment,
                   children: [
                     HFText(
                       title,
@@ -58,9 +62,20 @@ class HFHomeButtons extends StatelessWidget {
     if (title.toUpperCase() == 'HOME WORKOUT') {
       return Icon(Icons.fitness_center_outlined,
           color: Colors.white, size: HFGrid.xxxLarge);
-    } else {
+    }
+    if (title.toUpperCase() == 'CALORIE DEFICIT CALCULATOR') {
       return Icon(Icons.set_meal_outlined,
           color: Colors.white, size: HFGrid.xxxLarge);
+    }
+    if (title.toUpperCase() == 'NOTIFICATIONS') {
+      return Icon(Icons.notifications,
+          color: Colors.white, size: HFGrid.xxxLarge);
+    } else {
+      return Icon(
+        Icons.app_settings_alt_outlined,
+        color: Colors.white,
+        size: HFGrid.xxxLarge,
+      );
     }
   }
 }
