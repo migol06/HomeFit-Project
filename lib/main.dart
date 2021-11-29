@@ -1,10 +1,12 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:homefit/screens/screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/constants/constant.dart';
 
-void main() {
+int? isViewed;
+Future<void> main() async {
   AwesomeNotifications().initialize('resource://drawable/logo', [
     NotificationChannel(
       channelKey: 'scheduled_channel',
@@ -15,6 +17,12 @@ void main() {
       channelDescription: '',
     ),
   ]);
+
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isViewed = prefs.getInt("initScreen");
+  await prefs.setInt("initScreen", 1);
+  print('initScreen $isViewed');
   runApp(const MyApp());
 }
 
@@ -28,7 +36,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HFHomeScreen(),
+      initialRoute: isViewed == 0 || isViewed == null ? "first" : "/",
+      routes: {
+        '/': (context) => HFHomeScreen(),
+        "first": (context) => HFOnBoarding()
+      },
     );
   }
 }
