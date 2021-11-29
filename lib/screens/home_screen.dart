@@ -1,12 +1,89 @@
+import 'dart:io';
+
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:homefit/notifications.dart';
 import 'package:homefit/screens/screen.dart';
+import 'package:homefit/utilities.dart';
 import 'package:homefit/widgets/constants/constant.dart';
 import 'package:homefit/widgets/widgets.dart';
 import 'package:intl/intl.dart';
 
-class HFHomeScreen extends StatelessWidget {
+class HFHomeScreen extends StatefulWidget {
   const HFHomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HFHomeScreen> createState() => _HFHomeScreenState();
+}
+
+class _HFHomeScreenState extends State<HFHomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Allow Notifications'),
+            content: Text('Our app would like to send you notifications'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Don\'t Allow',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              TextButton(
+                  onPressed: () => AwesomeNotifications()
+                      .requestPermissionToSendNotifications()
+                      .then((_) => Navigator.pop(context)),
+                  child: Text(
+                    'Allow',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
+            ],
+          ),
+        );
+      }
+    });
+
+    AwesomeNotifications().actionStream.listen((notification) {
+      if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
+        AwesomeNotifications().getGlobalBadgeCounter().then(
+              (value) =>
+                  AwesomeNotifications().setGlobalBadgeCounter(value - 1),
+            );
+      }
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (_) => HFWorkoutScreen(),
+        ),
+        (route) => route.isFirst,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    AwesomeNotifications().actionSink.close();
+    AwesomeNotifications().createdSink.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +154,21 @@ class HFHomeScreen extends StatelessWidget {
                             Row(
                               children: [
                                 HFHomeButtons(
-                                    textAlignment: MainAxisAlignment.center,
-                                    title: "Notifications",
-                                    color: HFColor.lightOrange,
-                                    width: MediaQuery.of(context).size.width *
-                                        .40),
+                                  textAlignment: MainAxisAlignment.center,
+                                  title: "Notifications",
+                                  color: HFColor.lightOrange,
+                                  width:
+                                      MediaQuery.of(context).size.width * .40,
+                                  onTap: () async {
+                                    NotificationWeekAndTime? pickedSchedule =
+                                        await pickSchedule(context);
+
+                                    if (pickedSchedule != null) {
+                                      createWaterReminderNotification(
+                                          pickedSchedule);
+                                    }
+                                  },
+                                ),
                                 SizedBox(
                                   width: HFGrid.large,
                                 ),

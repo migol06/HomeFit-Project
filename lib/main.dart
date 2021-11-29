@@ -1,7 +1,20 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:homefit/screens/screen.dart';
 
+import 'widgets/constants/constant.dart';
+
 void main() {
+  AwesomeNotifications().initialize('resource://drawable/logo', [
+    NotificationChannel(
+      channelKey: 'scheduled_channel',
+      channelName: 'Scheduled Notifications',
+      defaultColor: HFColor.orange,
+      locked: true,
+      importance: NotificationImportance.High,
+      channelDescription: '',
+    ),
+  ]);
   runApp(const MyApp());
 }
 

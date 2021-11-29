@@ -16,6 +16,7 @@ dependencies:
   flutter_native_splash: ^1.2.4
   flutter_launcher_icons: ^0.9.2
   intl: ^0.17.0
+  awesome_notifications: ^0.6.18+2
 
 flutter_icons:
   android: true
