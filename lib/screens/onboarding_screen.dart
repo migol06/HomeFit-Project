@@ -30,8 +30,7 @@ class HFOnBoarding extends StatelessWidget {
         weight: HFTextWeight.bold,
       ),
       onDone: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => HFHomeScreen()));
+        goToHome(context);
       },
       showNextButton: false,
       showSkipButton: true,
@@ -49,7 +48,7 @@ class HFOnBoarding extends StatelessWidget {
   }
 
   void goToHome(context) => Navigator.of(context)
-      .push(MaterialPageRoute(builder: (_) => HFHomeScreen()));
+      .pushReplacement(MaterialPageRoute(builder: (_) => HFHomeScreen()));
 
   Widget buildImage(String path) {
     return Center(

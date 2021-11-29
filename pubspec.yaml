@@ -18,6 +18,7 @@ dependencies:
   intl: ^0.17.0
   awesome_notifications: ^0.6.18+2
   introduction_screen: ^2.1.0
+  shared_preferences: ^2.0.9
 
 flutter_icons:
   android: true
